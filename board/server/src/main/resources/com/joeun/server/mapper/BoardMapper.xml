@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace="매퍼 인터페이스 경로" --> 
+<mapper namespace="com.joeun.server.mapper.BoardMapper">
+
+  <select id="list" resultType="Board">
+
+    SELECT *
+    FROM Board
+    ORDER BY reg_date DESC
+
+  </select>
+
+
+
+  <select id="select" resultType="Board">
+  
+    SELECT *
+    FROM Board
+    WHERE no = #{no}
+
+  </select>
+
+
+  <insert id="insert">
+  
+    INSERT INTO board (title, writer,content)
+    VALUES (#{title}, #{writer}, #{content})
+
+  </insert>
+
+
+  <update id="update">
+  
+    UPDATE board
+      set title = #{title},
+        writer = #{writer},
+        content = #{content},
+        upd_date = now()
+      WHERE no = #{no}
+  
+  </update>
+
+
+  <delete id="delete">
+
+    DELETE FROM board
+    WHERE no = #{no}
+
+  </delete>
+
+
+  <!-- 조회수 업데이트 -->
+
+  <update id = "updateViews">
+
+    UPDATE board
+      SET views = views + #{count}
+    WHERE no = #{no}
+
+  </update>
+
+</mapper>
