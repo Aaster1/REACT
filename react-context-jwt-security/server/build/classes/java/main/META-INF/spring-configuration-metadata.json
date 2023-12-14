@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "com.joeun.server",
+      "type": "com.joeun.server.prop.JwtProps",
+      "sourceType": "com.joeun.server.prop.JwtProps"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.joeun.server.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.joeun.server.prop.JwtProps"
+    }
+  ],
+  "hints": []
+}
